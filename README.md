@@ -13,20 +13,13 @@ A professional, enterprise-grade gym management system with integrated fingerpri
 - Advanced search and filtering capabilities
 - Package and subscription management
 
-### Fingerprint Integration
-- **ZKTeco Device Support**: x2008, K40, and ETimeTrack-compatible devices
-- **Real-time Biometric Authentication**: Instant fingerprint scanning
-- **ID/Mobile Linking**: Search fingerprints by name, mobile, email, or ID
-- **Dual Registration**: Both members and trainers can register fingerprints
-- **Auto-sync**: Seamless integration with SQL database
-
 ### Dashboard & Analytics
 - Real-time attendance tracking
 - Comprehensive reporting and analytics
 - Member visit history and patterns
 - Trainer activity monitoring
 - Revenue and subscription analytics
-
+- 
 ### Enterprise Security Features
 - **Role-Based Access Control**: 21 granular permissions across 7 categories
 - **Input Sanitization**: XSS and injection attack prevention
