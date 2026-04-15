@@ -18,7 +18,7 @@ A professional, enterprise-grade gym management system with integrated fingerpri
 - **Real-time Biometric Authentication**: Instant fingerprint scanning
 - **ID/Mobile Linking**: Search fingerprints by name, mobile, email, or ID
 - **Dual Registration**: Both members and trainers can register fingerprints
-- **Auto-sync**: Seamless integration with Firebase database
+- **Auto-sync**: Seamless integration with SQL database
 
 ### Dashboard & Analytics
 - Real-time attendance tracking
@@ -32,19 +32,19 @@ A professional, enterprise-grade gym management system with integrated fingerpri
 - **Input Sanitization**: XSS and injection attack prevention
 - **Session Management**: 30-minute inactivity timeout with warning
 - **Audit Logging**: Complete trail of all actions
-- **Firestore Security Rules**: Backend permission validation
+- **SQL Security**: Secure authentication and permission validation
 - **Error Boundary**: Graceful error handling
 - **Data Encryption**: Secure storage and transmission
 
 ### Email & Notifications
 - **Password Reset Emails**: Automatic password reset links sent to new managers
 - **Auto-generated Passwords**: Secure temporary passwords with immediate reset
-- **Email Activity Logging**: Track all emails sent via email_logs collection
-- **Customizable Templates**: Modify email templates in Firebase Console
+- **Email Activity Logging**: Track all emails sent via audit logs
+- **Customizable Settings**: Configure email settings in SQL server config
 - **No Session Interruption**: Creating managers doesn't log out current admin
 
 ### User Management
-- **Dual Auth System**: Uses secondary Firebase auth instance for creating users
+- **SQL Auth System**: Uses SQL database for user authentication and management
 - **Session Preservation**: Admin stays logged in when creating new managers
 - **Soft Delete**: Removed managers are marked as inactive (not deleted)
 - **Access Control**: Removed managers cannot access the system (RBAC enforced)
@@ -55,9 +55,9 @@ A professional, enterprise-grade gym management system with integrated fingerpri
 | Component | Technology |
 |-----------|------------|
 | Frontend | React.js with modern UI components |
-| Backend | Firebase Firestore (real-time database) |
-| Authentication | Firebase Auth with RBAC |
-| Deployment | Netlify (web hosting) |
+| Backend | SQL Server with Node.js |
+| Authentication | SQL-based Auth with RBAC |
+| Deployment | Self-hosted or Node.js hosting |
 | Hardware Bridge | Node.js + ETimeTrack integration |
 
 ## Quick Start
@@ -69,19 +69,23 @@ A professional, enterprise-grade gym management system with integrated fingerpri
    npm install
    ```
 
-2. **Configure Firebase:**
-   - Update src/services/firebase.js with your Firebase config
-   - Set up Firestore security rules
+2. **Start SQL Server:**
+   ```bash
+   cd server
+   npm install
+   node sql-server.js
+   ```
+   The server will start on http://localhost:3001
 
-3. **Configure Email (for password resets):**
-   - Enable email provider in Firebase Console
-   - Customize password reset email templates
-   - Test email delivery before production
+3. **Configure backend:**
+   - SQL database: vigourzone.sql.json
+   - Default credentials: admin123 / admin1234
+   - Update .env in server directory if needed
 
 4. **Build and deploy:**
    ```bash
    npm run build
-   # Deploy to Netlify
+   # Deploy to hosting of your choice
    ```
 
 ### Hardware Bridge Server
@@ -121,12 +125,8 @@ This starts the hardware bridge server that:
 - Supports both JSON and SQLite formats
 - Automatic hydration on startup
 - Session persistence for user authentication
-
-### Firestore Integration
-- Real-time database synchronization
-- Collection-based document storage
-- Role-based security rules
-- Audit logging support
+- AlaSQL for in-memory operations
+- Built-in auth endpoints on port 3001
 
 ## Project Structure
 
@@ -149,52 +149,41 @@ GymTight Fitness-adminpanel/
 
 ### For Developers:
 1. Clone repository
-2. Configure Firebase project
-3. Update environment variables
-4. Deploy web app and server
+2. Install dependencies: npm install
+3. Setup SQL server: cd server && npm install && node sql-server.js
+4. Configure environment variables in .env
+5. Deploy web app and SQL server
+
+## Security Features
 
 ## Security Features
 
 - Encrypted Communication: All data encrypted in transit
 - Role-Based Access: Different permissions for admin/staff
 - Audit Logging: Complete activity tracking
-- Secure Storage: Fingerprint templates encrypted in Firebase
+- Secure Storage: Data persisted securely in SQL database
 - Session Management: 30-minute inactivity timeout
 - Input Validation: XSS and injection prevention
+- Rate Limiting: Protection against brute-force attacks
 
-## Email Configuration
+## Email & Password Management
 
-### Setting up Email for Password Resets
+### Default Credentials
+- **Username**: admin123
+- **Password**: admin1234
+- Change on first login through your account settings
 
-1. **Enable Email Provider in Firebase:**
-   - Go to Firebase Console > Authentication > Sign-in method
-   - Enable Email/Password provider if not already enabled
-   - Go to Templates tab to customize email templates
-
-2. **Customize Password Reset Template:**
-   - Click Password reset template
-   - Customize subject line and message
-   - Add your gym branding/logo
-   - Save changes
-
-3. **Test Email Delivery:**
-   - Create a test manager account in User Management
-   - Verify email is received
-   - Test the password reset link works
-   - Check email_logs collection in Firestore for tracking
-
-4. **Production Notes:**
-   - Emails are sent automatically when new managers are created
-   - Temporary passwords are auto-generated for security
-   - All email activity is logged in the email_logs collection
-   - Manager receives a secure password reset link via email
+### Password Reset
+- Use "Forgot Password?" to request a password reset
+- Reset link validation required
+- Session automatically managed by SQL server
 
 ## API Documentation
 
-The application includes both Firebase Firestore and SQL Server endpoints:
-- REST API on port 3001 (sql-server.js)
-- Firestore integration via Firebase SDK
-- Real-time synchronization across database layers
+The application includes SQL Server REST endpoints:
+- **Auth Endpoint**: POST /sql/auth/login (port 3001)
+- **User Management**: CRUD operations via API
+- **Data Persistence**: AlaSQL with JSON serialization
 
 ## Support
 
