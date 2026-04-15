@@ -1,0 +1,50 @@
+MIT License
+
+GymTight Fitness Admin Panel
+Copyright (c) 2025 LearnApart Organization
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "GymTight Fitness Admin Panel"), 
+to deal in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+ADDITIONAL TERMS FOR GYMTIGHT FITNESS ADMIN PANEL:
+
+1. ATTRIBUTION: When using this software in your own projects, please include
+   a clear attribution to "GymTight Fitness Admin Panel by LearnApart" in your
+   application's about section or documentation.
+
+2. TRADEMARK: The names "GymTight Fitness", "LearnApart", and associated logos are
+   trademarks of LearnApart Organization. Use of these trademarks requires
+   explicit written permission.
+
+3. CONTRIBUTIONS: By contributing to this project, you agree that your
+   contributions will be licensed under the same MIT License.
+
+4. THIRD-PARTY LIBRARIES: This software includes third-party libraries
+   (React, Firebase, Lucide React) which are subject to their own licenses.
+   Please refer to the package.json file for complete dependency information.
+
+5. DATA PRIVACY: Users implementing this admin panel are responsible for
+   ensuring compliance with applicable data protection regulations (GDPR,
+   CCPA, etc.) when handling user data.
+
+For questions regarding this license or commercial licensing options,
+please contact: learnapart@gmail.com
+
+Last updated: August 21, 2025

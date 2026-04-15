@@ -1,0 +1,25 @@
+{
+  "short_name": "GymTight Fitness Admin",
+  "name": "GymTight Fitness Gym Admin Portal",
+  "icons": [
+    {
+      "src": "gym-logo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "gym-logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "gym-logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#10b981",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "gymtight-fitness-etimetrack-bridge",
+  "version": "1.0.0",
+  "description": "ETimeTrack bridge service for existing client setup integration with GymTight Fitness Admin Panel",
+  "main": "etimetrack-bridge.js",
+  "scripts": {
+    "start": "node sms-server.js",
+    "start:full": "node api-server.js",
+    "start:sql": "node sql-server.js",
+    "dev": "nodemon sms-server.js",
+    "test": "node test-connection.js",
+    "csv": "node csv-integration.js",
+    "setup": "node setup.js",
+    "bridge": "node etimetrack-bridge.js",
+    "build": "pkg . --out-path dist",
+    "build:win": "pkg . --targets node18-win-x64 --out-path dist",
+    "build:all": "pkg . --targets node18-win-x64,node18-macos-x64,node18-linux-x64 --out-path dist"
+  },
+  "dependencies": {
+    "alasql": "^4.6.6",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "socket.io": "^4.7.5",
+    "dotenv": "^16.0.3",
+    "twilio": "^4.19.0"
+  },
+  "optionalDependencies": {
+    "firebase-admin": "^12.0.0",
+    "node-adodb": "^5.0.3",
+    "odbc": "^2.4.8",
+    "mdb-reader": "^1.0.0",
+    "csv-parser": "^3.0.0",
+    "xlsx": "^0.18.5",
+    "node-windows": "^1.0.0-beta.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "pkg": "^5.8.1"
+  },
+  "keywords": [
+    "etimetrack",
+    "fingerprint",
+    "attendance",
+    "firebase",
+    "existing-integration",
+    "client-migration"
+  ],
+  "author": "GymTight Fitness Team",
+  "license": "MIT",
+  "bin": "api-server.js",
+  "pkg": {
+    "scripts": ["api-server.js", "etimetrack-bridge.js", "firebase-config.js", "service-manager.js"],
+    "assets": ["node_modules/**/*"],
+    "targets": ["node18-win-x64"],
+    "outputPath": "dist"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "name": "gymtight-fitness",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0 <25.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "firebase": "^12.1.0",
+    "lucide-react": "^0.540.0",
+    "react": "^19.1.1",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.6",
+    "react-scripts": "^5.0.1",
+    "socket.io-client": "^4.8.1",
+    "twilio": "^5.10.6",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:sql": "cd server && node sql-server.js",
+    "start:full:sql": "npm run start:sql",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
+    "build:netlify": "CI=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server:install": "cd server && npm install",
+    "server:api": "cd server && node api-server.js",
+    "server:csv": "cd server && node csv-integration.js",
+    "server:bridge": "cd server && node etimetrack-bridge.js",
+    "server:setup": "cd server && node setup.js",
+    "etimetrack:csv": "npm run server:csv",
+    "etimetrack:bridge": "npm run server:bridge",
+    "etimetrack:setup": "npm run server:setup",
+    "etimetrack:start": "npm run server:api",
+    "etimetrack:realtime": "cd server && npm install && node api-server.js",
+    "deploy:hardware": "./deploy-hardware.sh",
+    "deploy:dev": "npm run server:install && npm run server:api",
+    "deploy:production": "npm run build:netlify && echo 'Deploy build/ to Netlify'"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}
